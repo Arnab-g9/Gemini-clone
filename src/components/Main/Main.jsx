@@ -1,9 +1,10 @@
 // import React from "react";
 import "./Main.css";
 import { assets } from "../../assets/assets";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Context } from "../../Context/Context";
 const Main = () => {
+  const [mode, setMode] = useState(true);
   const {
     onSent,
     recentPrompt,
@@ -14,10 +15,23 @@ const Main = () => {
     input,
   } = useContext(Context);
   return (
-    <div className="main">
+    <div className={`main ${!mode ? "darkMode" : ""}`}>
       <div className="nav">
-        <p>Gemini</p>
-        <img src={assets.user_icon} alt="" />
+        <p style={{ color: `${mode ? "black" : "white"}` }}>Gemini</p>
+        <div className="icon-container">
+          {mode ? (
+            <i
+              className="ri-sun-line icon"
+              onClick={() => setMode((mode) => !mode)}
+            ></i>
+          ) : (
+            <i
+              className="ri-moon-line icon"
+              onClick={() => setMode((mode) => !mode)}
+            ></i>
+          )}
+          <img src={assets.user_icon} alt="" />
+        </div>
       </div>
       <div className="main-container">
         {!showResult ? (

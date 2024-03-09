@@ -3,6 +3,12 @@
   min-height: 100vh;
   padding-bottom: 15vh;
   position: relative;
+  transition: background-color 1s;
+}
+.darkMode {
+  background-color: rgb(75, 75, 75);
+  color: rgb(255, 255, 255);
+  transition: background-color 1s;
 }
 .main .nav {
   display: flex;
@@ -11,6 +17,28 @@
   font-size: 22px;
   padding: 20px;
   color: #585858;
+}
+.main .nav .icon-container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.main .nav .icon-container .icon {
+  font-size: 30px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.main .nav .icon-container .icon:hover {
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+.ri-moon-line {
+  color: white;
 }
 .main .nav img {
   width: 40px;
